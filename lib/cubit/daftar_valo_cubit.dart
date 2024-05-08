@@ -12,7 +12,8 @@ class valoListCubit extends Cubit<List<valoModel>> {
               name: "",
               realname: "",
               role: "",
-              creature: "")
+              creature: "",
+              image: "")
         ]);
 
   //map dari json ke atribut
@@ -24,7 +25,8 @@ class valoListCubit extends Cubit<List<valoModel>> {
             name: e['name'],
             realname: e['realname'],
             role: e['role'],
-            creature: e['creature']))
+            creature: e['creature'],
+            image: e['image']))
         .toList();
     emit(valoList);
   }

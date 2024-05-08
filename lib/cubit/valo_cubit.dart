@@ -11,7 +11,8 @@ class valoCubit extends Cubit<valoModel> {
             name: "",
             realname: "",
             role: "",
-            creature: ""));
+            creature: "",
+            image: ""));
 
   //map dari json ke atribut
   void setFromJson(Map<String, dynamic> json) {
@@ -20,13 +21,15 @@ class valoCubit extends Cubit<valoModel> {
     String realname = json['realname'];
     String role = json['role'];
     String creature = json['creature'];
+    String image = json['image'];
 //emit state baru, ini berbeda dgn provider!
     emit(valoModel(
         id: id,
         name: name,
         realname: realname,
         role: role,
-        creature: creature));
+        creature: creature,
+        image: image));
   }
 
   void fetchData(String id) async {

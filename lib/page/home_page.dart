@@ -57,8 +57,9 @@ class HomePage extends StatelessWidget {
                           itemBuilder: (context, index) {
                             if (valoList[0].name != "") {
                               return ListTile(
-                                  leading: Image.network(
-                                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                                  leading: Image.asset(
+                                    'images/${valoList[index].image}'
+                                  ),
                                   title: Text(valoList[index].name),
                                   subtitle: Text(valoList[index].role),
                                   trailing: Icon(Icons.more_vert_rounded),
