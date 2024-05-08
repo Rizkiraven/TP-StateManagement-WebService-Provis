@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:umkm_bloc/cubit/umkm_cubit.dart';
-import 'package:umkm_bloc/cubit/umkm_state.dart';
+import 'package:valo_bloc/cubit/valo_cubit.dart';
+import 'package:valo_bloc/cubit/valo_state.dart';
 import 'dart:developer' as developer;
 
-class DetailUmkmPage extends StatelessWidget {
+class DetailValoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,12 +14,12 @@ class DetailUmkmPage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            BlocBuilder<umkmCubit, umkmModel>(
+            BlocBuilder<valoCubit, valoModel>(
                 buildWhen: (previousState, state) {
               developer.log('${previousState.name}->${state.name}',
                   name: 'log');
               return true;
-            }, builder: (context, umkmDetail) {
+            }, builder: (context, valoDetail) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -39,28 +39,23 @@ class DetailUmkmPage extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'Nama: ${umkmDetail.name}',
+                          'Nama: ${valoDetail.name}',
                           style: TextStyle(color: Colors.white),
                         ),
                         SizedBox(
                           height: 5.0,
                         ),
-                        Text('Detail: ${umkmDetail.type}',
+                        Text('Nama Asli: ${valoDetail.realname}',
                             style: TextStyle(color: Colors.white)),
                         SizedBox(
                           height: 5.0,
                         ),
-                        Text("Membe Sejak: ${umkmDetail.memberSejak}",
+                        Text("Role: ${valoDetail.role}",
                             style: TextStyle(color: Colors.white)),
                         SizedBox(
                           height: 5.0,
                         ),
-                        Text('Omzet: ${umkmDetail.omzetBulan} ',
-                            style: TextStyle(color: Colors.white)),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Text('Lama: ${umkmDetail.lamaUsaha}',
+                        Text('Kelas: ${valoDetail.creature} ',
                             style: TextStyle(color: Colors.white)),
                         SizedBox(
                           height: 5.0,

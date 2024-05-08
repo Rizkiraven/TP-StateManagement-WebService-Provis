@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:umkm_bloc/cubit/daftar_umkm_cubit.dart';
-import 'package:umkm_bloc/cubit/umkm_cubit.dart';
-import 'package:umkm_bloc/page/home_page.dart';
+import 'package:valo_bloc/cubit/daftar_valo_cubit.dart';
+import 'package:valo_bloc/cubit/valo_cubit.dart';
+import 'package:valo_bloc/page/home_page.dart';
 
 //model berisi data/state
 
@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MultiBlocProvider(
         providers: [
-          BlocProvider<umkmListCubit>(
-            create: (_) => umkmListCubit(),
+          BlocProvider<valoListCubit>(
+            create: (_) => valoListCubit(),
           ),
-          BlocProvider<umkmCubit>(
-            create: (_) => umkmCubit(),
+          BlocProvider<valoCubit>(
+            create: (_) => valoCubit(),
           ),
         ],
         child: const HomePage(),
