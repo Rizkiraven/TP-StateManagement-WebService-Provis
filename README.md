@@ -3,6 +3,7 @@
 ## Anggota Kelompok
 Muhammad Rizki Revandi, 2205027 <br />
 Meiva Labibah Putri, 2204343
+Ilmu Komputer C1 2022
 
 ## Note
 Pada repository ini terdapat 3 branch, yaitu main, Bloc, dan Provider.<br />
