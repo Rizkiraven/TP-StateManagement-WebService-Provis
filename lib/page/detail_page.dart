@@ -9,7 +9,7 @@ class DetailValoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Detail'),
+          title: const Text('Detail Agent'),
           centerTitle: true,
         ),
         body: Column(

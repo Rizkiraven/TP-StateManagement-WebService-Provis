@@ -13,24 +13,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          foregroundColor: Colors.blue,
+          backgroundColor: Colors.black87,
           title: Text(
-            'My App',
+            'Data Agent Valorant',
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
         ),
         body: SafeArea(
-          child: Padding(
+          child: Container(
+            color: Colors.red[400],
             padding: const EdgeInsets.all(8.0),
             child: ListView(
               children: [
                 Column(
                   children: [
                     Text(
-                        '2205027, Muhammad Rizki Revandi\n2204343, Meiva Labibah Putri\nSaya berjanji tidak akan berbuat curang data atau membantu orang lain berbuat curang'),
+                      '2205027, Muhammad Rizki Revandi\n2204343, Meiva Labibah Putri\nSaya berjanji tidak akan berbuat curang data atau membantu orang lain berbuat curang',
+                      style: TextStyle(color: Colors.white),
+                    ),
                     SizedBox(
                       height: 20.0,
                     ),
@@ -38,45 +42,85 @@ class HomePage extends StatelessWidget {
                       onPressed: () {
                         context.read<valoListCubit>().fetchData();
                       },
-                      child: Text('Reload Daftar VALO'),
+                      child: Text(
+                        'Reload Daftar Agent Valo',
+                        style: TextStyle(color: Colors.black87),
+                      ),
                     ),
                     SizedBox(
                       height: 20.0,
                     ),
                     BlocBuilder<valoListCubit, List<valoModel>>(
-                        buildWhen: (previousState, state) {
-                      developer.log(
-                          '${previousState[0].name}->${state[0].name}',
-                          name: 'log');
-                      return true;
-                    }, builder: (context, valoList) {
-                      return Container(
-                        height: 500,
-                        child: ListView.builder(
-                          itemCount: valoList.length,
-                          itemBuilder: (context, index) {
-                            if (valoList[0].name != "") {
-                              return ListTile(
-                                  leading: Image.asset(
-                                    'images/${valoList[index].image}'
+                      buildWhen: (previousState, state) {
+                        developer.log(
+                            '${previousState[0].name}->${state[0].name}',
+                            name: 'log');
+                        return true;
+                      },
+                      builder: (context, valoList) {
+                        return Container(
+                          // Mengatur tinggi Container agar tidak terlalu memanjang ke bawah
+                          height: 500,
+                          child: GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount:
+                                  2, // Menentukan jumlah kolom dalam grid
+                              crossAxisSpacing: 10.0, // Jarak antar kolom
+                              mainAxisSpacing: 10.0, // Jarak antar baris
+                              childAspectRatio:
+                                  2.00, // Rasio aspek item dalam grid
+                            ),
+                            itemCount: valoList.length,
+                            itemBuilder: (context, index) {
+                              if (valoList[0].name != "") {
+                                return Card(
+                                  color: Colors
+                                      .black87, // Ubah warna latar belakang card sesuai kebutuhan
+                                  child: ListTile(
+                                    leading: Image.asset(
+                                        'images/${valoList[index].image}'),
+                                    title: Text(
+                                      valoList[index].name,
+                                      overflow: TextOverflow
+                                          .ellipsis, // Memotong teks yang terlalu panjang
+                                      maxLines: 1, // Maksimum 1 baris teks
+                                      textAlign:
+                                          TextAlign.center, // Pusatkan teks
+                                      style: TextStyle(
+                                        fontSize: 12.0, // Ukuran teks responsif
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    subtitle: Text(
+                                      valoList[index].role,
+                                      overflow: TextOverflow
+                                          .ellipsis, // Memotong teks yang terlalu panjang
+                                      maxLines: 1, // Maksimum 1 baris teks
+                                      textAlign:
+                                          TextAlign.center, // Pusatkan teks
+                                      style: TextStyle(
+                                        fontSize: 10.0, // Ukuran teks responsif
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(builder: (context) {
+                                        context
+                                            .read<valoCubit>()
+                                            .fetchData(valoList[index].id);
+                                        return DetailValoPage();
+                                      }));
+                                    },
                                   ),
-                                  title: Text(valoList[index].name),
-                                  subtitle: Text(valoList[index].role),
-                                  trailing: Icon(Icons.more_vert_rounded),
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) {
-                                      context
-                                          .read<valoCubit>()
-                                          .fetchData(valoList[index].id);
-                                      return DetailValoPage();
-                                    }));
-                                  });
-                            }
-                          },
-                        ),
-                      );
-                    }),
+                                );
+                              }
+                            },
+                          ),
+                        );
+                      },
+                    )
                   ],
                 ),
               ],

@@ -1,17 +1,8 @@
-# valo_bloc
+# TP Web Service dan State Management
 
-A new Flutter project.
+## Anggota Kelompok
+Muhammad Rizki Revandi, 2205027 <br />
+Meiva Labibah Putri, 2204343
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# Valo_Cubit" 
+## Note
+Branch ini berisikan kode flutter yang mengaplikasikan Bloc.
