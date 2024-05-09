@@ -2,7 +2,7 @@
 
 ## Anggota Kelompok
 Muhammad Rizki Revandi, 2205027 <br />
-Meiva Labibah Putri, 2204343
+Meiva Labibah Putri, 2204343 <br />
 Ilmu Komputer C1 2022
 
 ## Note
