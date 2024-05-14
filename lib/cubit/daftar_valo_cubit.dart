@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class valoListCubit extends Cubit<List<valoModel>> {
-  String url = "http://127.0.0.1:8000/daftar_valo";
+  String url = "http://127.0.0.1:8000/daftar_agent_valo";
   valoListCubit()
       : super([
           valoModel(
