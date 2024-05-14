@@ -5,7 +5,6 @@ import 'package:valo_provider/provider/valo_provider.dart';
 import 'package:valo_provider/page/home_page.dart';
 
 
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,7 +16,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ValoListProvider()),
         ChangeNotifierProvider(create: (_) => ValoProvider()),
-        // Anda dapat menambahkan provider lain jika diperlukan
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

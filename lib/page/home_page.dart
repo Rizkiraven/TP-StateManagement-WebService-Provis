@@ -7,8 +7,20 @@ import 'dart:developer' as developer;
 
 import 'package:valo_provider/page/detail_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    // Memanggil fetchData saat inisialisasi
+    Provider.of<ValoListProvider>(context, listen: false).fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +44,11 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '2205027, Muhammad Rizki Revandi\n2204343, Meiva Labibah Putri\nSaya berjanji tidak akan berbuat curang data atau membantu orang lain berbuat curang',
+                      '2205027, Muhammad Rizki Revandi\n2204343, Meiva Labibah Putri\nKami berjanji tidak akan berbuat curang data atau membantu orang lain berbuat curang',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(
-                      height: 20.0,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Provider.of<ValoListProvider>(context, listen: false)
-                            .fetchData();
-                      },
-                      child: Text(
-                        'Reload Daftar Agent Valo',
-                        style: TextStyle(color: Colors.black87),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
+                      height: 40.0,
                     ),
                     Consumer<ValoListProvider>(
                       builder: (context, valoListProvider, _) {
@@ -98,7 +97,8 @@ class HomePage extends StatelessWidget {
                                           .fetchData(valoList[index].id);
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) => DetailValoPage(),
+                                          builder: (context) =>
+                                              DetailValoPage(),
                                         ),
                                       );
                                     },

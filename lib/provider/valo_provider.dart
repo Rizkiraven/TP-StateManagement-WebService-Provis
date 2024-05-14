@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ValoProvider with ChangeNotifier {
-  String url = "http://127.0.0.1:8000/detil_valo/";
+  String url = "http://127.0.0.1:8000/detail_agent_valo/";
   ValoModel _valoModel = ValoModel(
     id: "",
     name: "",

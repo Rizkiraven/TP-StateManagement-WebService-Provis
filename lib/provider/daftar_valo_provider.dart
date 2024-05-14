@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ValoListProvider with ChangeNotifier {
-  String url = "http://127.0.0.1:8000/daftar_valo";
+  String url = "http://127.0.0.1:8000/daftar_agent_valo";
   List<ValoModel> _valoList = [
     ValoModel(
       id: "",
